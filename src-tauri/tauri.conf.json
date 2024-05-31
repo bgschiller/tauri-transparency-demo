@@ -9,11 +9,16 @@
     "frontendDist": "../dist"
   },
   "app": {
+    "macOSPrivateApi": true,
     "windows": [
       {
         "title": "tauri-transparency-demo",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "transparent": true,
+        "decorations": true,
+        "acceptFirstMouse": true,
+        "alwaysOnTop": true
       }
     ],
     "security": {

@@ -3005,8 +3005,7 @@ dependencies = [
 [[package]]
 name = "tao"
 version = "0.28.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "12a8121bd5721ebbbe0889f8286d5824673beeb04071519b68916fbed04f3093"
+source = "git+https://github.com/bgschiller/tao.git?branch=track-resigning-key#d2c854aaf0a4874b6a36d1bdb7947f06abc74b9e"
 dependencies = [
  "bitflags 2.5.0",
  "cocoa",
@@ -3032,7 +3031,7 @@ dependencies = [
  "parking_lot",
  "raw-window-handle 0.6.2",
  "scopeguard",
- "tao-macros",
+ "tao-macros 0.1.2 (git+https://github.com/bgschiller/tao.git?branch=track-resigning-key)",
  "unicode-segmentation",
  "url",
  "windows 0.56.0",
@@ -3050,6 +3049,16 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "tao-macros"
+version = "0.1.2"
+source = "git+https://github.com/bgschiller/tao.git?branch=track-resigning-key#d2c854aaf0a4874b6a36d1bdb7947f06abc74b9e"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.66",
 ]
 
 [[package]]
@@ -3255,6 +3264,7 @@ dependencies = [
 name = "tauri-transparency-demo"
 version = "0.0.0"
 dependencies = [
+ "objc",
  "serde",
  "serde_json",
  "tauri",
@@ -4315,8 +4325,7 @@ dependencies = [
 [[package]]
 name = "wry"
 version = "0.40.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7cd42682bad8d1efd0e0d0593770c602c13b8922bb1ca705cb845967de81bbc4"
+source = "git+https://github.com/bgschiller/wry.git?branch=avoid-resigning-key#9d25031cba8450e9b636e5c13f5f3bc85462471e"
 dependencies = [
  "base64 0.22.1",
  "block",
@@ -4343,7 +4352,7 @@ dependencies = [
  "raw-window-handle 0.6.2",
  "sha2",
  "soup3",
- "tao-macros",
+ "tao-macros 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
  "webkit2gtk",
  "webkit2gtk-sys",

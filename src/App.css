@@ -11,8 +11,8 @@
   line-height: 24px;
   font-weight: 400;
 
-  color: #0f0f0f;
-  background-color: #f6f6f6;
+  color: #fef8f8;
+  background-color: rgba(0, 0, 0, 0.2);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -113,4 +113,9 @@ button {
   button:active {
     background-color: #0f0f0f69;
   }
+}
+
+textPath,
+text {
+  pointer-events: none;
 }
