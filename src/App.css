@@ -20,10 +20,18 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+html,
+body,
+#root,
+.container {
+  height: 100vh;
+}
+body {
+  margin: 0;
+}
 
 .container {
   margin: 0;
-  padding-top: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

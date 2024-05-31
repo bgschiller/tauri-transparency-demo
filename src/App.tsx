@@ -107,15 +107,21 @@ function App() {
           e.preventDefault();
           greet();
         }}
-        onMouseEnter={captureMouseEvents}
-        onMouseLeave={releaseMouseEvents}
       >
         <input
           id="greet-input"
           onChange={(e) => setName(e.currentTarget.value)}
           placeholder="Enter a name..."
+          onMouseEnter={captureMouseEvents}
+          onMouseLeave={releaseMouseEvents}
         />
-        <button type="submit">Greet</button>
+        <button
+          type="submit"
+          onMouseEnter={captureMouseEvents}
+          onMouseLeave={releaseMouseEvents}
+        >
+          Greet
+        </button>
       </form>
 
       <p>{greetMsg}</p>
