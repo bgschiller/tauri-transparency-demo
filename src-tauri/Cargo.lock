@@ -3270,6 +3270,8 @@ dependencies = [
  "tauri",
  "tauri-build",
  "tauri-plugin-shell",
+ "windows 0.56.0",
+ "winreg",
 ]
 
 [[package]]
