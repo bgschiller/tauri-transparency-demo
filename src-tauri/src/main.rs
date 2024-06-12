@@ -3,7 +3,8 @@
 
 #[cfg(target_os = "macos")]
 use objc::{msg_send, sel, sel_impl};
-use tauri::Manager;
+#[cfg(target_os = "windows")]
+mod win_transparency;
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
@@ -15,16 +16,25 @@ fn greet(name: &str) -> String {
 // be clickable. At that point, it will call this function to tell us to stop ignoring
 // mouse events.
 #[tauri::command]
-fn set_ignore_mouse_events(app_handle: tauri::AppHandle, ignore: bool, forward: bool) {
-    let main_window = app_handle.get_webview_window("main").unwrap();
-    let _ = main_window.with_webview(move |webview| {
-        #[cfg(target_os = "macos")]
-        unsafe {
-            let () = msg_send![webview.ns_window(), setIgnoresMouseEvents:ignore];
-            let () = msg_send![webview.ns_window(), setAcceptsMouseMovedEvents:forward];
-        }
-    });
-    return ();
+fn set_ignore_mouse_events(window: tauri::webview::WebviewWindow, ignore: bool, forward: bool) {
+    window
+        .set_ignore_cursor_events(ignore)
+        .expect("Error setting ignore cursor events");
+
+    #[cfg(target_os = "windows")]
+    {
+        win_transparency::set_forward_mouse_messages(window, forward);
+    }
+
+    #[cfg(target_os = "macos")]
+    {
+        window
+            .with_webview(move |webview| unsafe {
+                let () = msg_send![webview.ns_window(), setAcceptsMouseMovedEvents:forward];
+            })
+            .expect("Error setting forward for mouseMovedEvents on webview");
+    }
+    ()
 }
 
 fn main() {
